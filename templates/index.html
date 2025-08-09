@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anomaly Detection - Input</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Anomaly Detection - Input Form</h1>
+    </div>
+
+    <div class="card p-4 shadow-lg rounded-4">
+        <form action="/predict" method="post">
+            <!-- Model Selector Dropdown (inside the form!) -->
+            <div class="mb-4">
+                <label class="form-label fw-bold">Select Model:</label>
+                <select name="model_type" class="form-select" required>
+                    <option value="ocsvm">One-Class SVM</option>
+                    <option value="hybrid">Hybrid Random Forest</option>
+                </select>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">inter_api_access_duration</label>
+                    <input type="number" name="inter_api_access_duration" step="any" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">api_access_uniqueness</label>
+                    <input type="number" name="api_access_uniqueness" step="any" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">sequence_length</label>
+                    <input type="number" name="sequence_length" step="any" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">vsession_duration</label>
+                    <input type="number" name="vsession_duration" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">num_sessions</label>
+                    <input type="number" name="num_sessions" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">num_users</label>
+                    <input type="number" name="num_users" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">num_unique_apis</label>
+                    <input type="number" name="num_unique_apis" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">ip_type_default (0 or 1)</label>
+                    <input type="number" name="ip_type_default" min="0" max="1" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">source_F (0 or 1)</label>
+                    <input type="number" name="source_F" min="0" max="1" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg px-5">Predict</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
